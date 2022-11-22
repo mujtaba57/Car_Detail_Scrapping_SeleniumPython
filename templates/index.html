@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../staticFiles/css/bootstrap.min.css">
+    <title>Scrappe Data</title>
+</head>
+<body>
+    <div class="main">
+        <div class="header mt-5">
+            <div class="heading text-center pt-5">
+                <h2>Car Data Scrapper</h2>
+                <small>Car detail scrapping Application</small>
+            </div>
+        </div>
+        <div class="content mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-md-12 text-center pt-5">
+                        <form action="http://127.0.0.1:5006/fetching-data/" method="post" id="formbox">
+                            <div class="d-flex justify-content-center align-items-center mt-5 p-5">
+                                <div class="form-outline mx-1 w-25">
+                                    <label class="my-1">Start Index</label>
+                                    <input type="number" min="0" name="st_index" class="form-control" required/>
+                                </div>
+                                <div class="form-outline mx-1 w-25">
+                                    <label class="my-1">To Index</label>
+                                    <input type="number" min="1" name="to_index" class="form-control" required/>
+                                </div>
+                            </div>
+                            <div class="d-inline mt-5">
+                                <button type="submit" class="btn btn-primary btn-lg" onclick="loading();">Start Scrapping</button>
+                                <a href="http://127.0.0.1:5006/stop/" class="btn btn-danger btn-lg">Stop Scrapping</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col col-md-12 text-center pt-5" id="loading">
+                        <button class="btn btn-primary btn-lg" type="button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Getting Data...
+                        </button>
+                    </div>
+                    <div class="col col-md-12 pt-5 d-inline-flex justify-content-center align-items-center" id="timer">
+                        <h4 id="start_time" class="mx-3 text-center"></h4>
+                        <h4 id="time_head" class="mx-3 text-center"></h4>
+                    </div>
+                    {% if msg %}
+                    <div class="col col-md-12 text-center pt-5" id="msg_div">
+                        <h4><b>{{msg}}</b></h4>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../staticFiles/js/jquery-3.6.0.min.js"></script>
+    <script src="../staticFiles/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#loading").hide();  
+            $('#formbox').on('submit', function(event){
+                $("#loading").show();
+                $("#msg_div").hide();
+                const t = new Date();
+                const start_t = t.toLocaleTimeString();
+                document.getElementById("start_time").innerHTML = "Start: &ensp;" + start_t;
+
+
+                function myClock() {         
+                    setTimeout(function() {   
+                        const d = new Date();
+                        const n = d.toLocaleTimeString();
+                        document.getElementById("time_head").innerHTML = "- &emsp; Current: &ensp;" + n; 
+                        myClock();             
+                    }, 1000)
+                    }
+                myClock();  
+                
+            })
+        })
+    </script>
+</body>
+</html>

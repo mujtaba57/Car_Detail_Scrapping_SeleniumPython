@@ -1,0 +1,176 @@
+/* ***************************Header Starts Here********************S */
+
+#header{
+    background: #1B2D57;
+    position: relative;
+}
+.navbar{
+    z-index: 1;
+    position: static;
+    background: #1B2D57;
+}
+.navbar>.container-fluid{
+    align-items: end !important;
+    justify-content: flex-end !important;
+}
+.active{
+    text-decoration: underline 2px;
+    text-underline-position: under;
+    text-underline-offset: 4px;
+}
+.nav-link {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+  }
+  .nav-link:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    width: 0;
+    bottom: 1px;
+    background: rgb(255, 255, 255);
+    height: 2px;
+    transition-property: width;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  .nav-link:hover:after,
+  .nav-link:focus:after {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+/* *********************Header Ends Here************************S */
+/* ********************* Banner Starts Here********************** */
+.banner{
+    background: url("../assets/bg-lines.png")#1B2D57;
+}
+.banner-content h1{
+    font-size: 70px;
+}
+.banner-content small{
+    font-size: 25px;
+}
+.banner-content a{
+    width: 130px;
+    transition: all ease-in-out .3s;
+}
+.rounded-pill{
+    border-radius: 17px;
+    transition: all ease-in-out .3s;
+}
+.rounded-pill:hover{
+    border-radius: 5px !important;
+}
+.banner-bottom:before{
+    content: '';
+    background: url("../assets/img-curve.png");
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    height: 150px;
+    width: 100%;
+}
+.banner-bottom{
+    background: #1BADC3;
+    position: relative;
+}
+.cnt-icon:hover, .mtera-img:hover, .mfile-img:hover{
+    transform: scale(1.1); 
+    transition: all ease-in-out 0.3s;
+}
+.cnt-icon, .net-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 90px;
+    background: white;
+}
+.cnt-icon img, .net-img img{
+    width: 60px;
+    height: 60px;
+}
+
+/* *****************************Banner Ends Here*********************************S*/
+
+/* *****************************Network Starts Here ****************************** */
+.text-green{
+    color: green;
+}
+.apr{
+    background: #F4F4F4;
+    width: 100%;
+}
+.apr ul > li{
+    border: none;
+    background: #F4F4F4;
+    width: 50%;
+}
+.li-right{
+    border-left: 1px solid #bebdbd !important;
+}
+.net-img{
+    border: 2px solid #48C0CF;
+}
+.net-column{
+    border: 1px solid #48C0CF;
+    border-radius: 10px;
+    box-shadow: 0px -5px 3px rgba(72, 192, 207, 1);
+}
+/* *************************Network Ends Here***************************************** */
+
+/* *************************Security Starts Here***************************************S */
+.security{
+    clip-path: polygon(100% 0, 100% 76%, 0 100%, 0 21%);
+    background: #E4E4E2;
+}
+
+/* ************************Security Ends Here**************************************** */
+
+/**************************Footer Starts Here****************************************S  */
+#footer{
+    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0% 100%);
+    background: #1A305B;
+}
+#footer ul{
+    list-style: none;
+    display: contents;
+    justify-content: left;
+    align-self: flex-start;
+}
+#footer ul li > a{
+    text-decoration: none;
+}
+#footer .btn-rounded{
+    border: 1px solid white;
+}
+#footer .btn-rounded:hover{
+    border-radius: 10px;
+    color: rgb(49, 44, 44);
+    background: rgb(107, 104, 104);
+}
+.bottom-footer{
+    border-top: 1px solid gray;
+}
+/* *************************Footer Ends Here************************************ */
+@media only screen and (max-width: 991px){
+    .navbar-collapse{
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        z-index: 1;
+        background: #1B2D57;
+        top: calc(100% + 10px);
+        padding: 20px;
+    }
+    .banner-bottom:before{
+        display: none;
+    }
+}
+@media only screen and (max-width: 1320px){
+    .banner-bottom:before{
+        height: 100px !important;
+    }
+}
